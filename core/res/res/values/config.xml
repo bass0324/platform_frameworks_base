@@ -1874,4 +1874,23 @@
     <string-array translatable="false" name="config_sms_convert_destination_number_support">
         <item>false</item>
     </string-array>
+<<<<<<< HEAD
+=======
+
+    <!-- kill app long press back -->
+    <integer name="config_backKillTimeout">2000</integer>
+
+    <!-- Setting to false will disable CM's IME switcher implementation for tablets -->
+    <bool name="config_show_cmIMESwitcher">true</bool>
+
+    <!-- The list of components which should be automatically disabled. -->
+    <string-array name="config_disabledComponents" translatable="false">
+    </string-array>
+
+    <!-- Configuartion to set zen mode when silent mode is on -->
+    <bool name="config_setZenModeWhenSilentModeOn">false</bool>
+
+    <!-- If this is true, key chords can be used to take a screen record on the device. -->
+    <bool name="config_enableScreenrecordChord">true</bool>
+>>>>>>> 15bedc5... Base:screen recorder [1/2]
 </resources>
