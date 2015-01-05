@@ -105,6 +105,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
      * see config.xml config_globalActionList */
     private static final String GLOBAL_ACTION_KEY_POWER = "power";
     private static final String GLOBAL_ACTION_KEY_REBOOT = "reboot";
+    private static final String GLOBAL_ACTION_KEY_SCREENRECORD = "screenrecord";
     private static final String GLOBAL_ACTION_KEY_SCREENSHOT = "screenshot";
     private static final String GLOBAL_ACTION_KEY_AIRPLANE = "airplane";
     private static final String GLOBAL_ACTION_KEY_BUGREPORT = "bugreport";
@@ -290,7 +291,13 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             if (GLOBAL_ACTION_KEY_POWER.equals(actionKey)) {
                 mItems.add(new PowerAction());
             } else if (GLOBAL_ACTION_KEY_REBOOT.equals(actionKey)) {
+<<<<<<< HEAD
                 mItems.add(getRebootAction());
+=======
+                mItems.add(new RebootAction());
+	    } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
+                mItems.add(getScreenrecordAction());
+>>>>>>> 72e6607... Power menu: Add Screen recorder [1/2]
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 mItems.add(getScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
@@ -408,6 +415,28 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             public void onPress() {
                 mWindowManagerFuncs.reboot();
             }
+
+            public boolean showDuringKeyguard() {
+                return true;
+            }
+
+            public boolean showBeforeProvisioning() {
+                return true;
+            }
+        };
+    }
+
+    private Action getScreenrecordAction() {
+        return new SinglePressAction(com.android.internal.R.drawable.ic_lock_screen_record,
+                 R.string.global_action_screen_record) {
+
+            public void onPress() {
+                toggleScreenRecord();
+            }
+
+	    public boolean onLongPress() {
+                return false;
+        }
 
             public boolean showDuringKeyguard() {
                 return true;
