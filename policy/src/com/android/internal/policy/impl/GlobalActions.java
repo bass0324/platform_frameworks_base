@@ -100,6 +100,7 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private static final String TAG = "GlobalActions";
 
     private static final boolean SHOW_SILENT_TOGGLE = true;
+    private final boolean mShowScreenRecord;
 
     /* Valid settings for global actions keys.
      * see config.xml config_globalActionList */
@@ -134,7 +135,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
     private boolean mHasTelephony;
     private boolean mHasVibrator;
     private final boolean mShowSilentToggle;
-    private final boolean mShowScreenRecord;
 
     /**
      * @param context everything needs a context :(
@@ -277,7 +277,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
         onAirplaneModeChanged();
 
         mItems = new ArrayList<Action>();
-
         String[] defaultActions = mContext.getResources().getStringArray(
                 com.android.internal.R.array.config_globalActionsList);
 
@@ -291,13 +290,9 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             if (GLOBAL_ACTION_KEY_POWER.equals(actionKey)) {
                 mItems.add(new PowerAction());
             } else if (GLOBAL_ACTION_KEY_REBOOT.equals(actionKey)) {
-<<<<<<< HEAD
                 mItems.add(getRebootAction());
-=======
-                mItems.add(new RebootAction());
 	    } else if (GLOBAL_ACTION_KEY_SCREENRECORD.equals(actionKey)) {
                 mItems.add(getScreenrecordAction());
->>>>>>> 72e6607... Power menu: Add Screen recorder [1/2]
             } else if (GLOBAL_ACTION_KEY_SCREENSHOT.equals(actionKey)) {
                 mItems.add(getScreenshotAction());
             } else if (GLOBAL_ACTION_KEY_AIRPLANE.equals(actionKey)) {
@@ -325,28 +320,6 @@ class GlobalActions implements DialogInterface.OnDismissListener, DialogInterfac
             // Add here so we don't add more than one.
             addedKeys.add(actionKey);
         }
-
- 		// next: screen record, if enabled
-                mItems.add(
-                    new SinglePressAction(com.android.internal.R.drawable.ic_lock_screen_record,
-                            R.string.global_action_screen_record) {
-
-                        public void onPress() {
-                            toggleScreenRecord();
-                        }
-
-                        public boolean onLongPress() {
-                            return false;
-                        }
-
-                        public boolean showDuringKeyguard() {
-                            return true;
-                        }
-
-                        public boolean showBeforeProvisioning() {
-                            return true;
-                        }
-                    });
 
         mAdapter = new MyAdapter();
 

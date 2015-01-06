@@ -517,14 +517,9 @@ public class PhoneWindowManager implements WindowManagerPolicy {
     private boolean mVolumeUpKeyTriggered;
     private boolean mPowerKeyTriggered;
     private long mPowerKeyTime;
-<<<<<<< HEAD
-=======
-    private boolean mVolumeMusicControls;
-    private boolean mIsLongPress;
     private boolean mScreenRecordChordEnabled = true;
     private long mVolumeUpKeyTime;
     private boolean mVolumeUpKeyConsumedByScreenRecordChord;
->>>>>>> 15bedc5... Base:screen recorder [1/2]
 
     /* The number of steps between min and max brightness */
     private static final int BRIGHTNESS_STEPS = 10;
@@ -943,18 +938,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     };
 
-<<<<<<< HEAD
-=======
-    Runnable mBackLongPress = new Runnable() {
-        public void run() {
-            if (DevUtils.killForegroundApplication(mContext)) {
-                performHapticFeedbackLw(null, HapticFeedbackConstants.LONG_PRESS, false);
-                Toast.makeText(mContext, R.string.app_killed_message, Toast.LENGTH_SHORT).show();
-                // Do nothing; just let it go.
-            }
-        }
-    };
-
     private final Runnable mScreenRecordRunnable = new Runnable() {
         @Override
         public void run() {
@@ -962,7 +945,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
         }
     };
 
->>>>>>> 15bedc5... Base:screen recorder [1/2]
     @Override
     public void showGlobalActions() {
         mHandler.removeMessages(MSG_DISPATCH_SHOW_GLOBAL_ACTIONS);
@@ -2248,12 +2230,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             mPendingMetaAction = false;
         }
 
-<<<<<<< HEAD
-=======
-        if (keyCode == KeyEvent.KEYCODE_BACK && !down) {
-            mHandler.removeCallbacks(mBackLongPress);
-        }
-
         // If we think we might have a volume up & power key chord on the way
         // but we're not sure, then tell the dispatcher to wait a little while and
         // try again later before dispatching.
@@ -2274,7 +2250,6 @@ public class PhoneWindowManager implements WindowManagerPolicy {
             }
         }
 
->>>>>>> 15bedc5... Base:screen recorder [1/2]
         // First we always handle the home key here, so applications
         // can never break it, although if keyguard is on, we do let
         // it handle it, because that gives us the correct 5 second
