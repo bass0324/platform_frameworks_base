@@ -140,7 +140,7 @@ public class VolumePanel extends Handler {
     private boolean mVoiceCapable;
     private boolean mZenModeAvailable;
     private boolean mZenPanelExpanded;
-    private boolean mExtendedPanelExpanded = false;
+    private boolean mExtendedPanelExpanded = true;
     private boolean mVolumeLinkNotification;
     private int mTimeoutDelay = TIMEOUT_DELAY;
     private float mDisabledAlpha;
