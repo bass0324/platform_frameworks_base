@@ -172,8 +172,6 @@ public class NotificationPanelView extends PanelView implements
     private boolean mQsTouchAboveFalsingThreshold;
     private int mQsFalsingThreshold;
 
-<<<<<<< HEAD
-=======
     private Handler mHandler = new Handler();
     private SettingsObserver mSettingsObserver;
 
@@ -182,7 +180,6 @@ public class NotificationPanelView extends PanelView implements
     private int mStatusBarHeaderHeight;
     private GestureDetector mDoubleTapGesture;
 
->>>>>>> c9f094b... SystemUI: double tap to sleep improvements
     public NotificationPanelView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mSettingsObserver = new SettingsObserver(mHandler);
@@ -1881,8 +1878,6 @@ public class NotificationPanelView extends PanelView implements
     public void onScreenTurnedOn() {
         mKeyguardStatusView.refreshTime();
     }
-<<<<<<< HEAD
-=======
 
     class SettingsObserver extends ContentObserver {
         SettingsObserver(Handler handler) {
@@ -1921,5 +1916,4 @@ public class NotificationPanelView extends PanelView implements
                     resolver, Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 1) == 1;
         }
     }
->>>>>>> c9f094b... SystemUI: double tap to sleep improvements
 }
