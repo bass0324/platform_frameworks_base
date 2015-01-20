@@ -47,7 +47,6 @@ import android.os.Debug;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Vibrator;
-import android.provider.Settings;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.KeyEvent;
@@ -1210,12 +1209,6 @@ public class VolumePanel extends Handler {
     }
 
     protected void onPlaySound(int streamType, int flags) {
-        
-        // Volume adjust sound
-        if (Settings.System.getInt(mContext.getContentResolver(),
-             Settings.System.VOLUME_KEY_ADJUST_SOUND, 1) == 0) {
-             return;
-        }
 
         if (hasMessages(MSG_STOP_SOUNDS)) {
             removeMessages(MSG_STOP_SOUNDS);
