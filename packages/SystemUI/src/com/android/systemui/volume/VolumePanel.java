@@ -64,6 +64,7 @@ import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+import android.provider.Settings;
 
 import com.android.internal.R;
 import com.android.systemui.statusbar.phone.SystemUIDialog;
@@ -517,10 +518,6 @@ public class VolumePanel extends Handler {
             @Override
             public void onInteraction() {
                 resetTimeout();
-                if (mZenPanelCallback != null) {
-                    mZenPanelCallback.onInteraction();
-                    mZenPanel.clearAnimation();
-                }
             }
 
             @Override
