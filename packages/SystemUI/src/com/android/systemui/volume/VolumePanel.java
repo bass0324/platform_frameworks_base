@@ -96,11 +96,11 @@ public class VolumePanel extends Handler {
     private static final int BEEP_DURATION = 150;
     private static final int MAX_VOLUME = 100;
     private static final int FREE_DELAY = 10000;
-    private static final int TIMEOUT_DELAY = 3000;
-    private static final int TIMEOUT_DELAY_SHORT = 1500;
-    private static final int TIMEOUT_DELAY_COLLAPSED = 4500;
-    private static final int TIMEOUT_DELAY_SAFETY_WARNING = 5000;
-    private static final int TIMEOUT_DELAY_EXPANDED = 10000;
+    private static final int TIMEOUT_DELAY = 1000;
+    private static final int TIMEOUT_DELAY_SHORT = 500;
+    private static final int TIMEOUT_DELAY_COLLAPSED = 1500;
+    private static final int TIMEOUT_DELAY_SAFETY_WARNING = 1500;
+    private static final int TIMEOUT_DELAY_EXPANDED = 3000;
 
     private static final int MSG_VOLUME_CHANGED = 0;
     private static final int MSG_FREE_RESOURCES = 1;
