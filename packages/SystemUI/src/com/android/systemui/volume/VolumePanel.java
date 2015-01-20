@@ -264,8 +264,8 @@ public class VolumePanel extends Handler {
     private ContentObserver mSettingsObserver = new ContentObserver(this) {
         @Override
         public void onChange(boolean selfChange) {
-            mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
-                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+            /* mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
+                    Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1; */
         }
     };
 
@@ -432,17 +432,17 @@ public class VolumePanel extends Handler {
         mVibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
         mVoiceCapable = context.getResources().getBoolean(R.bool.config_voice_capable);
 
-        mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
-                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1;
+        /* mVolumeLinkNotification = Settings.Secure.getInt(mContext.getContentResolver(),
+                Settings.Secure.VOLUME_LINK_NOTIFICATION, 1) == 1; */
 
-        context.getContentResolver().registerContentObserver(
+        /* context.getContentResolver().registerContentObserver(
                 Settings.Secure.getUriFor(Settings.Secure.VOLUME_LINK_NOTIFICATION), false,
-                mSettingsObserver);
+                mSettingsObserver); */
 
-        if (mZenController != null && !useMasterVolume) {
+        /* if (mZenController != null && !useMasterVolume) {
             mZenModeAvailable = mZenController.isZenAvailable();
             mZenController.addCallback(mZenCallback);
-        }
+        } */
 
         final boolean masterVolumeOnly = res.getBoolean(R.bool.config_useMasterVolume);
         final boolean masterVolumeKeySounds = res.getBoolean(R.bool.config_useVolumeKeySounds);
