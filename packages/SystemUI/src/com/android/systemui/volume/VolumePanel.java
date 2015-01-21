@@ -1422,19 +1422,13 @@ public class VolumePanel extends Handler {
                 if (isShowing()) {
                     hideVolumePanel();
                     if (mDialog != null) {
-                        mView.animate().y(-mView.getHeight())
-                                .setDuration(ANIMATION_DURATION)
-                                .withEndAction(new Runnable() {
-                            public void run() {
-                                mDialog.dismiss();
-                                clearRemoteStreamController();
-                                mActiveStreamType = -1;
-                                if (mCallback != null) {
-                                    mCallback.onVisible(false);
-                                }
-                            }
-                        });
-					}
+                        mDialog.dismiss();
+                        clearRemoteStreamController();
+                        mActiveStreamType = -1;
+                        if (mCallback != null) {
+                            mCallback.onVisible(false);
+                        }
+                    }
                 }
                 synchronized (sSafetyWarningLock) {
                     if (sSafetyWarning != null) {
