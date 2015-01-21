@@ -1420,12 +1420,21 @@ public class VolumePanel extends Handler {
 
             case MSG_TIMEOUT: {
                 if (isShowing()) {
-                    mDialog.dismiss();
-                    clearRemoteStreamController();
-                    mActiveStreamType = -1;
-                    if (mCallback != null) {
-                        mCallback.onVisible(false);
-                    }
+                    hideVolumePanel();
+                    if (mDialog != null) {
+                        mView.animate().y(-mView.getHeight())
+                                .setDuration(ANIMATION_DURATION)
+                                .withEndAction(new Runnable() {
+                            public void run() {
+                                mDialog.dismiss();
+                                clearRemoteStreamController();
+                                mActiveStreamType = -1;
+                                if (mCallback != null) {
+                                    mCallback.onVisible(false);
+                                }
+                            }
+                        });
+					}
                 }
                 synchronized (sSafetyWarningLock) {
                     if (sSafetyWarning != null) {
